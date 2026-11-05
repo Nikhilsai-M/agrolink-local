@@ -21,6 +21,7 @@ Open http://127.0.0.1:4173. Run `npm run build` after edits and reload the brows
 - `src/assets/` contains local optimized images, the original logo mark, and a custom SVG icon sprite.
 - `scripts/build.mjs` creates a clean `dist/` output and injects public build configuration.
 - `vercel.json` supplies the static deployment settings.
+- `render.yaml` supplies a Render Static Site blueprint.
 - `.openai/hosting.json` identifies the connected Sites project.
 
 This implementation uses HTML, CSS, and ES modules. npm registry resolution was unavailable during development, so the project uses a dependency-free static stack. All landing-page content is available without JavaScript. The interactive preview requires JavaScript.
@@ -60,6 +61,8 @@ The endpoint URL is public build configuration. Keep private service keys on you
 
 ### Vercel
 
+Vercel's free Hobby plan is restricted to personal, non-commercial use. Assess AgroLink Local under its commercial-use rules before selecting a plan. [Vercel fair use guidelines](https://vercel.com/docs/limits/fair-use-guidelines#commercial-usage)
+
 1. Push the source to your own Git repository.
 2. Import that repository into Vercel.
 3. Select framework preset **Other**, use build command `npm run build`, and output directory `dist`. The included `vercel.json` declares these settings.
@@ -67,6 +70,16 @@ The endpoint URL is public build configuration. Keep private service keys on you
 5. Deploy. Once Vercel assigns a production domain, set `SITE_URL` to that HTTPS origin and redeploy.
 
 Vercel supports Git-based deployments. [Vercel deployment documentation](https://vercel.com/docs/deployments)
+
+### Render
+
+1. Push the source to a GitHub repository that your Render account can access.
+2. In Render, select **New > Static Site**, connect that repository, and choose `main`.
+3. Use build command `npm run build` and publish directory `dist`. Set `NODE_VERSION` to `22`.
+4. Deploy. Set `SITE_URL` to the actual assigned HTTPS origin, then redeploy to generate canonical and Open Graph URLs for that host.
+5. Configure `LEAD_ENDPOINT` only after an authorized inquiry service is ready, following the lead-capture instructions above.
+
+You can also create the service through a Render Blueprint using the included `render.yaml`. Render Static Sites are free to deploy, subject to the workspace's included bandwidth and pipeline minutes. [Render Static Sites documentation](https://render.com/docs/static-sites)
 
 ### Netlify
 
