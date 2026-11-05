@@ -1,0 +1,8 @@
+dist/
+node_modules/
+.env*
+!.env.example
+.vercel/
+.qa/
+outputs/
+*.tar.gz
