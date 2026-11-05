@@ -76,7 +76,7 @@ Vercel supports Git-based deployments. [Vercel deployment documentation](https:/
 1. Push the source to a GitHub repository that your Render account can access.
 2. In Render, select **New > Static Site**, connect that repository, and choose `main`.
 3. Use build command `npm run build` and publish directory `dist`. Set `NODE_VERSION` to `22`.
-4. Deploy. Set `SITE_URL` to the actual assigned HTTPS origin, then redeploy to generate canonical and Open Graph URLs for that host.
+4. Deploy. The build automatically uses Render's assigned HTTPS URL for canonical and Open Graph metadata. Set `SITE_URL` if you later connect a custom domain.
 5. Configure `LEAD_ENDPOINT` only after an authorized inquiry service is ready, following the lead-capture instructions above.
 
 You can also create the service through a Render Blueprint using the included `render.yaml`. Render Static Sites are free to deploy, subject to the workspace's included bandwidth and pipeline minutes. [Render Static Sites documentation](https://render.com/docs/static-sites)

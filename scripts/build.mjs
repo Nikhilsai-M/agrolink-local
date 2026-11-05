@@ -18,7 +18,7 @@ function httpsUrl(value, name) {
   return url;
 }
 
-const site = httpsUrl(process.env.SITE_URL, 'SITE_URL');
+const site = httpsUrl(process.env.SITE_URL || process.env.RENDER_EXTERNAL_URL, 'SITE_URL');
 if (site && (site.pathname !== '/' || site.search)) throw new Error('SITE_URL must be the site origin.');
 const endpoint = httpsUrl(process.env.LEAD_ENDPOINT, 'LEAD_ENDPOINT');
 const source = path.join(root, 'src');
