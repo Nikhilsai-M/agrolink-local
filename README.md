@@ -67,7 +67,7 @@ Vercel's free Hobby plan is restricted to personal, non-commercial use. Assess A
 2. Import that repository into Vercel.
 3. Select framework preset **Other**, use build command `npm run build`, and output directory `dist`. The included `vercel.json` declares these settings.
 4. Use Node.js 22 or newer. Set `SITE_URL` and, when ready, `LEAD_ENDPOINT`.
-5. Deploy. Once Vercel assigns a production domain, set `SITE_URL` to that HTTPS origin and redeploy.
+5. Enable access to Vercel's system environment variables. Deploy. When `SITE_URL` is unset, the build uses `VERCEL_PROJECT_PRODUCTION_URL` to generate the canonical and Open Graph URLs. You can also set `SITE_URL` explicitly to your desired HTTPS origin.
 
 Vercel supports Git-based deployments. [Vercel deployment documentation](https://vercel.com/docs/deployments)
 
